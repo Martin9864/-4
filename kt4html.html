@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>ориентациыя</title>
+<style>
+body {
+  font-family: sans-serif;
+  margin: 0;
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.box {
+  width: 30%;
+  margin: 10px;
+  padding: 20px;
+  background-color: aqua;
+
+}
+.box {
+  width: 30%;
+}
+.phone-mode .box {
+  width: 90%;
+}
+.tablet-mode .box {
+  width: 45%;
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+<button id="phoneBtn">телефон</button>
+<button id="tabletBtn">планшет</button>
+<button id="desktopBtn">пк</button>
+</div>
+
+<div id="content" class="container">
+  <div class="box">1</div>
+  <div class="box">2</div>
+  <div class="box">3</div>
+  <div class="box">4</div>
+  <div class="box">5</div>
+  <div class="box">6</div>
+</div>
+
+<script>
+const phoneBtn = document.getElementById('phoneBtn');
+const tabletBtn = document.getElementById('tabletBtn');
+const desktopBtn = document.getElementById('desktopBtn');
+const contentDiv = document.getElementById('content');
+
+phoneBtn.addEventListener('click', () => {
+  contentDiv.classList.remove('tablet-mode', 'desktop-mode');
+  contentDiv.classList.add('phone-mode');
+});
+
+tabletBtn.addEventListener('click', () => {
+  contentDiv.classList.remove('phone-mode', 'desktop-mode');
+  contentDiv.classList.add('tablet-mode');
+});
+
+desktopBtn.addEventListener('click', () => {
+  contentDiv.classList.remove('phone-mode', 'tablet-mode');
+});
+</script>
+
+</body>
+</html>
